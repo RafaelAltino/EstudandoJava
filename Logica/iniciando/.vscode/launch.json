@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Questao6",
+            "request": "launch",
+            "encoding": "UTF-8",
+            "mainClass": "Exercicios2.Questao6",
+            "projectName": "iniciando_b93cc753"
+        }
+    ]
+}

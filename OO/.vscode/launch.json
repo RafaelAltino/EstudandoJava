@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Questao7",
+            "request": "launch",
+            "mainClass": "Questao7",
+            "projectName": "OO_5db67a5d"
+        },
+        {
+            "type": "java",
+            "name": "Launch ClassesEObjetos",
+            "encoding": "UTF-8",
+            "request": "launch",
+            "mainClass": "ClassesEObjetos",
+            "projectName": "OO_5db67a5d"
+        }
+    ]
+}

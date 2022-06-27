@@ -30,6 +30,14 @@ import java.util.HashMap;
  * Exemplo: Desejo armazenar os nomes dos empregados(valores) e seus IDs(chaves) respect:
  * em uma lista HashMap, verificando a forma como os dados estão sendo trabalhados
  * 
+ * 
+ * HashTable: é o nome genérico para mapas baseados em hash
+ * É uma matriz de lista. Cada posição do hash é identificada chamando
+ * o método .hashCode() . Um Hashtable contém valores com base na chave
+ * Não pode ter nenhuma chave ou valor nulo.
+ * 
+ * 
+ *
  */
 
 public class App {
@@ -97,6 +105,8 @@ public class App {
         //Usando Remove
         nomes.remove(56789);
         System.out.println(nomes);
+
+        nomes.keySet();
 
 
 

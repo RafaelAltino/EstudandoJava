@@ -1,8 +1,8 @@
 import java.util.Map;
 
 public class ClienteFacilitador {
-    public static <T> T inicializa(Map<String, String> dados, Class<T> cls){
-        if(cls.equals(PessoaFisica.class)){
+    public static <T> T inicializa(Map<String, String> dados, Class<T> cls) {
+        if (cls.equals(PessoaFisica.class)) {
             PessoaFisica p = new PessoaFisica();
         }
         PessoaFisica pessoa = new PessoaFisica();

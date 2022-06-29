@@ -3,26 +3,14 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MyOwnLists<T extends Pessoa> implements Comparator<T>{
+public class MyOwnLists<T extends Pessoa>{
     
 
-    public static <T> List<T> asListedSorted(List<T> lista, T comparador) {
-        List<T> listaFiltrada = 
+    public static <T> List<T> asListedSorted(List<T> lista, Comparator comparador) {
         Collections.sort(lista, comparador);
-        return listaFiltrada;
-    }
-
-    @Override
-    public int compare(T obj1, T obj2) {
-
-        if(obj1.getNome().compareTo(obj2.getNome()) == -1){
-            System.out.println();
-        }
-        return 0;
+        return lista;
     }
 
 
-
- 
 
 }

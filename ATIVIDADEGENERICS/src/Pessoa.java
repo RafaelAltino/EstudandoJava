@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-abstract class Pessoa implements Comparator{
+abstract class Pessoa extends Object{
     private String nome;
     private int idade;
 
@@ -19,6 +19,11 @@ abstract class Pessoa implements Comparator{
     
     public int compare(Pessoa p1, Pessoa p2) {
         return p1.getNome().compareTo(p2.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return ("Pessoa: {Nome: " + this.nome + "}");
     }
 
 }

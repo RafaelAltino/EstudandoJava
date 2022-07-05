@@ -40,7 +40,10 @@ public class App {
         grafo.adicionarAresta(vcp, ssa);
         grafo.adicionarAresta(sdu, ssa);
 
-        grafo.buscaEmLargura(grafo.getVertice(sdu));
+        //grafo.buscaEmLargura(grafo.getVertice(sdu));
+
+        System.out.println(grafo.buscarCidadePorNome("GRU").toString());
+        
 
 
 

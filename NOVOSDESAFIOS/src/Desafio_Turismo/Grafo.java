@@ -40,14 +40,12 @@ public class Grafo<T> implements Travel{
         return vertice;
     }
 
-    // TO DO : receber como parametro o vertice de origem
     public void buscaEmLargura(Vertice<T> origem){
         ArrayList<Vertice<T>> marcados = new ArrayList<>();
         ArrayList<Vertice<T>> fila = new ArrayList<>();
-        //Vertice<T> atual = this.vertices.get(0);
         Vertice<T> atual = origem;
         marcados.add(atual);
-        System.out.println(atual.getDado().toString());
+        System.out.println("Oi " + atual.getDado().toString());
         fila.add(atual);
         while(fila.size() > 0){
             Vertice<T> visitado = fila.get(0);
@@ -76,12 +74,69 @@ public class Grafo<T> implements Travel{
     }
 
     public boolean isReachable(String from, String to, int numberConnections){
-        T cidadeOrigem = buscarCidadePorNome(from);
-        T cidadeDestino = buscarCidadePorNome(to);
+
+        Vertice<T> verticeOrigem = this.getVertice(buscarCidadePorNome(from));
+        Vertice<T> verticeDestino = this.getVertice(buscarCidadePorNome(to));
+
+        buscaEspecifica(verticeOrigem, verticeDestino, numberConnections);
+
 
 
         return false;
     }
+
+    public boolean buscaEspecifica(Vertice<T> origem, Vertice<T> destino, int conexoesMaximas){
+        ArrayList<Vertice<T>> marcados = new ArrayList<>();
+        int conexoesUsadas = 0;
+        marcados.add(origem);       
+        System.out.println("Oi " + origem.getDado().toString());
+
+   
+        Vertice<T> atual = origem;
+        while(conexoesUsadas <= conexoesMaximas){
+            for(int i = 0; i < atual.getEuAcesso().size(); i++){
+                Vertice<T> proximo = atual.getEuAcesso().get(i).getFim();                
+                if(proximo.equals(destino)){
+                    return true;
+                }
+                this.buscaEspecifica(proximo, destino, conexoesMaximas - conexoesUsadas);     
+            }
+
+            conexoesUsadas++;
+        }
+            
+        return false;
+    }
+
+    public int avanca(Vertice<T> atual, int conexoesFeitas){
+
+        return 0;
+    }
+
+        // while(fila.size() > 0){
+        //     Vertice<T> visitado = fila.get(0);
+
+        //     for(int i = 0; i < visitado.getEuAcesso().size(); i++){
+        //         Vertice<T> proximo = visitado.getEuAcesso().get(i).getFim();
+                
+        //         if(!marcados.contains(proximo)){ // se o vértice ainda não foi marcado
+        //             marcados.add(proximo);
+
+        //         conexoes++;
+        //             if(proximo.equals(destino)){
+        //                 System.out.printf("Cheguei em %d passos\n", conexoes);
+        //                 break;
+        //             }
+        //             System.out.println(proximo.getDado().toString());
+        //             fila.add(proximo);
+        //         }
+        //     }
+        //     fila.remove(0);
+        // }
+
+    
+
+    
 
 
 }

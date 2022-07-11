@@ -11,11 +11,9 @@ package Desafio_Investimento;
 import Desafio_Investimento.Pasta_Clientes.ClienteArrojado;
 import Desafio_Investimento.Pasta_Clientes.ClienteConservador;
 import Desafio_Investimento.Pasta_Clientes.ClienteModerado;
-import Desafio_Investimento.Pasta_Investimentos.Acao;
-import Desafio_Investimento.Pasta_Investimentos.Cdb;
 import Desafio_Investimento.Pasta_Investimentos.FundoImobiliario;
 import Desafio_Investimento.Pasta_Investimentos.Investimento;
-import Desafio_Investimento.Pasta_Investimentos.RendaFixa;
+
 import Desafio_Investimento.Pasta_Investimentos.Tesouro;
 
 public class App {

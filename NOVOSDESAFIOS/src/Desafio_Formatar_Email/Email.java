@@ -1,8 +1,5 @@
 package Desafio_Formatar_Email;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Email {
     private Usuario origem;
     private Usuario destino;

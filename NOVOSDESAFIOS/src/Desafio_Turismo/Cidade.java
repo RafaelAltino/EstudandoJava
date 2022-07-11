@@ -1,7 +1,5 @@
 package Desafio_Turismo;
 
-import java.util.ArrayList;
-
 public class Cidade implements RegraCidade{
     private String nome;
 

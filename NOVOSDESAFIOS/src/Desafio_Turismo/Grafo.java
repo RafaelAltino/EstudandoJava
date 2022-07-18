@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 
-public class Grafo<T> implements Travel{
+public class Grafo<T>{
     private ArrayList<Vertice<T>> vertices;
     private ArrayList<Aresta<T>> arestas;
 

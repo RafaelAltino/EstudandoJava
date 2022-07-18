@@ -39,9 +39,17 @@ public class App {
         grafo.adicionarAresta(vcp, ssa);
         grafo.adicionarAresta(sdu, ssa);
 
-        //grafo.buscaEmLargura(grafo.getVertice(gru));
+        System.out.print("De POA para REC com 2 escalas: ");
+        System.out.println(grafo.isReachable("POA", "REC", 2));
 
-        grafo.isReachable("GRU", "NAT", 1);
+        System.out.print("De POA para REC com 1 escalas: ");
+        System.out.println(grafo.isReachable("POA", "REC", 1));
+
+        System.out.print("De SSA para SDU com 0 escalas: ");
+        System.out.println(grafo.isReachable("SSA", "SDU", 0));
+
+        System.out.print("De SDU para SSA com 0 escalas: ");
+        System.out.println(grafo.isReachable("SDU", "SSA", 0));
         
 
 

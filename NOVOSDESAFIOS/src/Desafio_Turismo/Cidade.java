@@ -16,7 +16,7 @@ public class Cidade implements RegraCidade{
 
     @Override
     public String toString(){
-        return ("Sou " + this.nome);
+        return (this.nome);
     }
 
 

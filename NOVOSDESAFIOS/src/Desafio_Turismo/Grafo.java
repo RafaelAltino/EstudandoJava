@@ -78,65 +78,42 @@ public class Grafo<T> implements Travel{
         Vertice<T> verticeOrigem = this.getVertice(buscarCidadePorNome(from));
         Vertice<T> verticeDestino = this.getVertice(buscarCidadePorNome(to));
 
-        buscaEspecifica(verticeOrigem, verticeDestino, numberConnections);
+        if(verticeOrigem != null && verticeDestino != null){
+            return buscaEspecifica(verticeOrigem, verticeDestino, numberConnections);
+        }
 
-
-
+        System.out.println("Cidade não encontrada");
         return false;
+        
     }
 
     public boolean buscaEspecifica(Vertice<T> origem, Vertice<T> destino, int conexoesMaximas){
-        ArrayList<Vertice<T>> marcados = new ArrayList<>();
-        int conexoesUsadas = 0;
-        marcados.add(origem);       
-        System.out.println("Oi " + origem.getDado().toString());
-
-   
+      
+        int passosDisponiveis = conexoesMaximas;
         Vertice<T> atual = origem;
-        while(conexoesUsadas <= conexoesMaximas){
-            for(int i = 0; i < atual.getEuAcesso().size(); i++){
-                Vertice<T> proximo = atual.getEuAcesso().get(i).getFim();                
+        boolean conseguiu = false;
+
+        for(Aresta<T> aresta : atual.getEuAcesso()){  
+            if(conexoesMaximas >= 0){                
+                Vertice<T> proximo = aresta.getFim();
+
                 if(proximo.equals(destino)){
                     return true;
+                } else{
+                    conseguiu = buscaEspecifica(proximo, destino, conexoesMaximas-1);
+                    if(conseguiu == true){
+                        return true;
+                    }
                 }
-                this.buscaEspecifica(proximo, destino, conexoesMaximas - conexoesUsadas);     
-            }
-
-            conexoesUsadas++;
+                
+            }       
         }
-            
-        return false;
+        return conseguiu;
     }
 
     public int avanca(Vertice<T> atual, int conexoesFeitas){
 
         return 0;
     }
-
-        // while(fila.size() > 0){
-        //     Vertice<T> visitado = fila.get(0);
-
-        //     for(int i = 0; i < visitado.getEuAcesso().size(); i++){
-        //         Vertice<T> proximo = visitado.getEuAcesso().get(i).getFim();
-                
-        //         if(!marcados.contains(proximo)){ // se o vértice ainda não foi marcado
-        //             marcados.add(proximo);
-
-        //         conexoes++;
-        //             if(proximo.equals(destino)){
-        //                 System.out.printf("Cheguei em %d passos\n", conexoes);
-        //                 break;
-        //             }
-        //             System.out.println(proximo.getDado().toString());
-        //             fila.add(proximo);
-        //         }
-        //     }
-        //     fila.remove(0);
-        // }
-
-    
-
-    
-
 
 }

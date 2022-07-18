@@ -56,11 +56,11 @@ public class Exemplo2 {
             if(cidadesStream.anyMatch( s -> s.startsWith("L"))){
                 System.out.println("Tem cidade iniciando com L");
             }
-            if(cidadesStream.anyMatch( s -> s.startsWith("L"))){
-                System.out.println("Tem cidade iniciando com L");
+            if(cidadesStream.noneMatch( s -> s.startsWith("X"))){
+                System.out.println("Não contem cidade iniciando com X");
             }
-            if(cidadesStream.anyMatch( s -> s.startsWith("L"))){
-                System.out.println("Tem cidade iniciando com L");
+            if(!cidadesStream.allMatch( (s) -> s.contains("s"))){
+                System.out.println("Nem todas tem letra s");
             }
         
         System.out.println("\nFlatMap:");

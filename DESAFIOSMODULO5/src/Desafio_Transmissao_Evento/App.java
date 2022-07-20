@@ -1,14 +1,12 @@
 package Desafio_Transmissao_Evento;
 
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
+
 
 public class App {
     public static void main(String[] args) {
@@ -31,18 +29,33 @@ public class App {
         for(i = 0; i < agendaSP.size(); i++){
             System.out.println(agendaSP.get(i).getNumero() + "a Sessão");
             System.out.printf("\tData: %d/%d/%d, %s\n",
-            agendaSP.get(i).getInicio().getDayOfMonth(),
-            agendaSP.get(i).getInicio().getMonthValue(),
-            agendaSP.get(i).getInicio().getYear(),
-            diaDaSemana(agendaSP.get(i).getInicio())
+            agendaSP.get(i).getInicio(Local.SAOPAULO).getDayOfMonth(),
+            agendaSP.get(i).getInicio(Local.SAOPAULO).getMonthValue(),
+            agendaSP.get(i).getInicio(Local.SAOPAULO).getYear(),
+            diaDaSemana(agendaSP.get(i).getInicio(Local.SAOPAULO))
             );
             System.out.printf("\tHora: %dh - %dh",
-                agendaSP.get(i).getInicio().getHour(),
-                agendaSP.get(i).getFim().getHour()
+                agendaSP.get(i).getInicio(Local.SAOPAULO).getHour(),
+                agendaSP.get(i).getFim(Local.SAOPAULO).getHour()
             );
             System.out.println();
         }
 
+        System.out.println("\n==========AGENDA HORÁRIO DE PARIS==========");
+        for(i = 0; i < agendaSP.size(); i++){
+            System.out.println(agendaSP.get(i).getNumero() + "a Sessão");
+            System.out.printf("\tData: %d/%d/%d, %s\n",
+            agendaSP.get(i).getInicio(Local.PARIS).getDayOfMonth(),
+            agendaSP.get(i).getInicio(Local.PARIS).getMonthValue(),
+            agendaSP.get(i).getInicio(Local.PARIS).getYear(),
+            diaDaSemana(agendaSP.get(i).getInicio(Local.PARIS))
+            );
+            System.out.printf("\tHora: %dh - %dh",
+                agendaSP.get(i).getInicio(Local.PARIS).getHour(),
+                agendaSP.get(i).getFim(Local.PARIS).getHour()
+            );
+            System.out.println();
+        }
         
 
 

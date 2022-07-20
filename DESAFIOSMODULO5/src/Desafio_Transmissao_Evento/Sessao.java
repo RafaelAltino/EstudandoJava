@@ -7,6 +7,8 @@ public class Sessao {
     private LocalDateTime inicio;
     private LocalDateTime fim;
 
+
+
     public Sessao(int numero, LocalDateTime inicio, LocalDateTime fim) {
         this.numero = numero;
         this.inicio = inicio;
@@ -19,24 +21,37 @@ public class Sessao {
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    public LocalDateTime getInicio() {
-        return inicio;
+    public LocalDateTime getInicio(Local local) {
+        return inicio.plusHours(calculaFuzoHorario(local));
     }
-    public void setInicio(LocalDateTime inicio) {
-        this.inicio = inicio;
+    public void setInicio(LocalDateTime inicio, Local local) {
+        this.inicio = inicio.plusHours(calculaFuzoHorario(local));
     }
-    public LocalDateTime getFim() {
-        return fim;
+    public LocalDateTime getFim(Local local) {
+        return fim.plusHours(calculaFuzoHorario(local));
     }
-    public void setFim(LocalDateTime fim) {
-        this.fim = fim;
+    public void setFim(LocalDateTime fim, Local local) {
+        this.fim = fim.plusHours(calculaFuzoHorario(local));
+    }
+
+    private int calculaFuzoHorario(Local local){
+        switch(local){
+            case SAOPAULO:
+                return 0;
+
+            case PARIS:
+                return 5;
+
+            default:
+                return 0;
+        }
     }
 
     @Override
     public String toString() {
         return "Sessão[ número: " + this.getNumero() +
-        ", início: " + this.getInicio() +
-        ", fim: " + this.getFim() +         
+        ", início: " + this.getInicio(Local.SAOPAULO) +
+        ", fim: " + this.getFim(Local.SAOPAULO) +
         "]";
     }
 

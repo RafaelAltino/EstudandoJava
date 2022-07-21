@@ -1,7 +1,7 @@
 /*
  * 
- *  \w  -> todos os caracteres, alfanumericos
- *  \W  -> Todos os não caracteres
+ *  \\w  -> todos os caracteres, alfanumericos
+ *  \\W  -> Todos os não caracteres
  */
 
 public class App {

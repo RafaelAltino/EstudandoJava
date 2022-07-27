@@ -7,10 +7,6 @@ public class App {
 
         new File("arquivos").mkdir();
 
-
-
-
-
         System.out.println("vvvv");
         System.out.println(new File("./arquivos").getAbsolutePath());
         System.out.println("^^^^");

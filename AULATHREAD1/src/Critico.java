@@ -13,6 +13,7 @@ public class Critico {
                 hello(lock)
         ).start();
 
+        Thread.sleep(1000);
 
         if(lock.tryLock(5, TimeUnit.SECONDS)){
             System.out.println("fazendo operacao critica");

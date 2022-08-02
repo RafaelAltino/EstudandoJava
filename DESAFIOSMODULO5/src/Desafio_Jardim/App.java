@@ -54,9 +54,9 @@ public class App {
         .unordered()
         .parallel()
         .filter( (n) -> n != 3)
-        .skip((long) (jardim.get().toList().size() * 0.25))
+        .skip(37)
         .map((n) -> n +", ")
         .forEach(System.out::print);
-        ;
+
     }
 }

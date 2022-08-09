@@ -1,4 +1,4 @@
-package br.com.bancodobrasil.aula1.controller;
+package br.com.desafio.desafioCliente.controller;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
+public class PagesController {
 
-    private List<User> users = Collections.synchronizedList(new ArrayList<>());
+    private List<Client> clientes = Collections.synchronizedList(new ArrayList<>());
 
     @GetMapping({ "/home" })
     public String home(){
@@ -19,18 +19,18 @@ public class HomeController {
     }
 
     @GetMapping({ "/user" })
-    public User getUser(){
-        return new User("Antonio Aranres", "toninho@gmail.com", 25);
+    public Client getUser(){
+        return new Client("Antonio Aranres", "toninho@gmail.com", 25);
     }
 
     @GetMapping({ "/user/list" })
-    public List<User> getUserList(){
+    public List<Client> getUserList(){
         // return new ArrayList<>() {{
         //     add(new User("Amanda", "madinha@gmail.com", 25));
         //     add(new User("Beatriz", "btriz@gmail.com", 25));
         //     add(new User("Camila", "mila@gmail.com", 30));
         // }};
-        return users;
+        return clientes;
     }
 
     @GetMapping({ "/user/add" })
@@ -38,10 +38,10 @@ public class HomeController {
         @RequestParam(value = "name") String name,
         @RequestParam(value = "email", defaultValue = "teste@gmail.com") String email
     ){
-        users.add(new User(name, email, 40));
+        clientes.add(new Client(name, email, 40));
     }
 
-    private record User(String name, String email, int idade){
+    private record Client(String name, String email, int idade){
 
     }
 

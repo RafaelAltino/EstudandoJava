@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,12 +15,22 @@ public class PagesController {
 
     private List<Client> clientes = Collections.synchronizedList(new ArrayList<>());
 
-    @GetMapping({ "/home" })
+    @GetMapping({ "/" })
     public String home(){
-        return "{\"name\":\"Antonio Aranres\",\"email\":\"toninho@gmail.com\"}";
+        return "Home";
     }
 
-    @GetMapping({ "/user" })
+    @GetMapping({"/client/list"})
+    public Client getClientes(){
+        return new Client("Antonio Aranres", "toninho@gmail.com", 25);
+    }
+
+    @PutMapping({"/client/{id}"})
+    public Client updateCliente(){
+        return new Client("Antonio Aranres", "toninho@gmail.com", 25);
+    }
+
+    @PostMapping({"/client"})
     public Client getUser(){
         return new Client("Antonio Aranres", "toninho@gmail.com", 25);
     }
